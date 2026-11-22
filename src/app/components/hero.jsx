@@ -233,8 +233,8 @@ export default function Hero() {
             grid-template-columns: minmax(0, 1fr);
             grid-template-rows: auto auto auto auto;
             align-content: start;
-            min-height: 100svh;
-            padding-bottom: 4.5rem;
+            min-height: 0;
+            padding-bottom: 1rem;
           }
           .nav {
             grid-row: 1;
