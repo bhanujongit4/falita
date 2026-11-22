@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function Hero() {
   return (
     <main className="hero">
@@ -108,8 +110,7 @@ export default function Hero() {
           z-index: 2;
           pointer-events: none;
           background:
-            linear-gradient(90deg, var(--ink) 0%, var(--ink) 30%, rgba(5,6,10,0.55) 52%, transparent 78%),
-            radial-gradient(ellipse at 50% 120%, rgba(5,6,10,0.9), transparent 60%);
+            linear-gradient(90deg, var(--ink) 0%, var(--ink) 30%, rgba(5,6,10,0.55) 40%, transparent 45%);
         }
         .grain {
           position: absolute;
@@ -281,13 +282,48 @@ export default function Hero() {
         /* ---------- Responsive ---------- */
         @media (max-width: 900px) {
           .nav ul { display: none; }
-          .hero__image { width: 100%; opacity: 0.75; }
-          .hero__image img { object-position: 78% center; }
+          .hero { min-height: 100svh; }
+          .hero__image { inset: 0; width: 100%; height: 100%; }
+          .hero__image img {
+            object-fit: cover;
+            object-position: center;
+            -webkit-mask-image: none;
+            mask-image: none;
+          }
           .shade {
             background:
-              linear-gradient(180deg, rgba(5,6,10,0.35) 0%, rgba(5,6,10,0.75) 55%, var(--ink) 100%);
+              linear-gradient(180deg, transparent 20%, rgba(5,6,10,0.15) 45%, rgba(5,6,10,0.8) 100%);
           }
           .content { justify-content: flex-end; padding-bottom: 7rem; }
+        }
+
+        @media (max-width: 600px) {
+          .hero__image {
+            top: 12%;
+            right: 0;
+            left: auto;
+            width: 68%;
+            height: 52%;
+          }
+          .hero__image img {
+            object-fit: contain;
+            object-position: right center;
+          }
+          .shade {
+            background: linear-gradient(90deg, var(--ink) 0%, rgba(5,6,10,0.75) 38%, rgba(5,6,10,0.08) 100%),
+                        linear-gradient(180deg, transparent 0%, rgba(5,6,10,0.18) 42%, var(--ink) 78%);
+          }
+          .content {
+            min-height: calc(100svh - 6.5rem);
+            max-width: 74%;
+            justify-content: center;
+            padding: 1rem 0 5.5rem 1.5rem;
+          }
+          .title { font-size: clamp(2.55rem, 10vw, 3.4rem); }
+          .lede { max-width: 19rem; font-size: 0.95rem; }
+          .actions { gap: 0.7rem; margin-top: 1.5rem; }
+          .btn { padding: 0.8rem 1rem; font-size: 0.82rem; }
+          .track { bottom: 1.4rem; font-size: 0.75rem; }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -297,7 +333,10 @@ export default function Hero() {
 
       {/* Image + effects */}
       <div className="hero__image">
-        <img src="/images/hifalita.jpeg" alt="Vocalist on stage under starburst lights" />
+        <picture>
+          <source media="(max-width: 900px)" srcSet="/images/heromobile.jpg" />
+          <Image src="/images/hifalita.jpeg" alt="Vocalist on stage under starburst lights" fill priority sizes="(max-width: 900px) 100vw, 78vw" />
+        </picture>
       </div>
       <div className="haze" aria-hidden="true">
         <span />
