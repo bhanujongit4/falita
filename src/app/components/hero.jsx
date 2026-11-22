@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <main className="hero">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap');
 
         :root {
           --ink: #05060a;
@@ -26,7 +26,7 @@ export default function Hero() {
           overflow: hidden;
           background: var(--ink);
           color: var(--bone);
-          font-family: 'Manrope', system-ui, sans-serif;
+          font-family: Helvetica, Arial, sans-serif;
           isolation: isolate;
         }
 
@@ -129,10 +129,13 @@ export default function Hero() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 2rem clamp(1.5rem, 5vw, 4.5rem);
+          padding: 0.5rem clamp(1.5rem, 5vw, 4.5rem);
+          background: rgba(5, 6, 10, 0.16);
+          backdrop-filter: blur(2px);
+          -webkit-backdrop-filter: blur(2px);
         }
         .logo {
-          font-family: 'Instrument Serif', serif;
+          font-family: Helvetica, Arial, sans-serif;
           font-size: 1.6rem;
           letter-spacing: 0.01em;
           color: var(--bone);
@@ -143,15 +146,21 @@ export default function Hero() {
           gap: 2.4rem;
           list-style: none;
         }
+        .mobile-menu { display: none; }
         .nav a.link {
-          color: var(--mute);
+          display: inline-block;
+          color: var(--bone);
           text-decoration: none;
-          font-size: 0.92rem;
+          font-size: 1.242rem;
           font-weight: 400;
-          transition: color 0.25s ease;
+          transition: color 0.25s ease, transform 0.2s ease;
         }
         .nav a.link:hover,
         .nav a.link:focus-visible { color: var(--bone); }
+        @media (min-width: 901px) {
+          .nav a.link:hover,
+          .nav a.link:focus-visible { transform: scale(1.2); }
+        }
 
         .content {
           position: relative;
@@ -165,7 +174,9 @@ export default function Hero() {
         }
 
         .title {
-          font-family: 'Instrument Serif', serif;
+          position: relative;
+          top: 2.5rem;
+          font-family: 'Playfair Display', Georgia, serif;
           font-weight: 400;
           font-size: clamp(3.2rem, 7.6vw, 7rem);
           line-height: 0.98;
@@ -176,7 +187,7 @@ export default function Hero() {
         .title em { font-style: italic; }
 
         .lede {
-          margin-top: 1.8rem;
+          margin-top: 5rem;
           max-width: 31rem;
           font-size: clamp(1rem, 1.25vw, 1.12rem);
           line-height: 1.7;
@@ -185,94 +196,10 @@ export default function Hero() {
           animation: rise 1.4s 0.15s cubic-bezier(0.2, 0.7, 0.2, 1) both;
         }
 
-        .actions {
-          margin-top: 2.6rem;
-          display: flex;
-          flex-wrap: wrap;
-          gap: 1rem;
-          align-items: center;
-          animation: rise 1.4s 0.3s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-        }
-        .btn {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.7rem;
-          padding: 0.95rem 1.7rem;
-          border-radius: 999px;
-          font-family: inherit;
-          font-size: 0.95rem;
-          font-weight: 500;
-          text-decoration: none;
-          cursor: pointer;
-          transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-        }
-        .btn--solid {
-          background: var(--bone);
-          color: var(--ink);
-          border: 1px solid var(--bone);
-        }
-        .btn--solid:hover,
-        .btn--solid:focus-visible {
-          transform: translateY(-2px);
-          box-shadow: 0 10px 40px -8px rgba(63, 212, 230, 0.55);
-        }
-        .btn--ghost {
-          background: rgba(241, 237, 230, 0.04);
-          color: var(--bone);
-          border: 1px solid var(--line);
-          backdrop-filter: blur(8px);
-        }
-        .btn--ghost:hover,
-        .btn--ghost:focus-visible {
-          border-color: rgba(241, 237, 230, 0.5);
-          background: rgba(241, 237, 230, 0.09);
-        }
-        .btn:focus-visible, .nav a:focus-visible {
+        .nav a:focus-visible {
           outline: 2px solid var(--teal);
           outline-offset: 3px;
         }
-        .play {
-          width: 0; height: 0;
-          border-left: 9px solid currentColor;
-          border-top: 6px solid transparent;
-          border-bottom: 6px solid transparent;
-        }
-
-        /* ---------- Now playing strip ---------- */
-        .track {
-          position: absolute;
-          z-index: 5;
-          left: clamp(1.5rem, 5vw, 4.5rem);
-          bottom: 2.4rem;
-          display: flex;
-          align-items: center;
-          gap: 1rem;
-          font-size: 0.85rem;
-          color: var(--mute);
-          animation: rise 1.4s 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-        }
-        .eq {
-          display: flex;
-          align-items: flex-end;
-          gap: 3px;
-          height: 16px;
-        }
-        .eq i {
-          display: block;
-          width: 3px;
-          background: var(--teal);
-          border-radius: 2px;
-          animation: eq 1.1s ease-in-out infinite;
-        }
-        .eq i:nth-child(1) { height: 40%; animation-delay: 0s; }
-        .eq i:nth-child(2) { height: 90%; animation-delay: 0.2s; }
-        .eq i:nth-child(3) { height: 60%; animation-delay: 0.4s; }
-        .eq i:nth-child(4) { height: 80%; animation-delay: 0.1s; }
-        @keyframes eq {
-          0%, 100% { transform: scaleY(0.35); }
-          50%      { transform: scaleY(1); }
-        }
-        .track b { color: var(--bone); font-weight: 500; }
 
         @keyframes rise {
           from { opacity: 0; transform: translateY(24px); }
@@ -281,7 +208,10 @@ export default function Hero() {
 
         /* ---------- Responsive ---------- */
         @media (max-width: 900px) {
-          .nav ul { display: none; }
+          .nav { padding: 1rem clamp(1rem, 4vw, 2rem); gap: 1rem; }
+          .nav ul { display: flex; gap: clamp(0.5rem, 2vw, 1.25rem); }
+          .nav a.link { font-size: clamp(0.918rem, 2.16vw, 1.161rem); }
+          .logo img { display: block; width: clamp(4.5rem, 12vw, 7rem); height: auto; }
           .hero { min-height: 100svh; }
           .hero__image { inset: 0; width: 100%; height: 100%; }
           .hero__image img {
@@ -298,36 +228,108 @@ export default function Hero() {
         }
 
         @media (max-width: 600px) {
-          .hero__image {
-            top: 12%;
+          .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            grid-template-rows: auto auto auto auto;
+            align-content: start;
+            min-height: 100svh;
+            padding-bottom: 4.5rem;
+          }
+          .nav {
+            grid-row: 1;
+            z-index: 20;
+            padding: 0.45rem 1rem;
+            min-height: 3.6rem;
+          }
+          .nav > ul { display: none; }
+          .mobile-menu { display: block; position: relative; }
+          .mobile-menu summary {
+            display: flex;
+            width: 2.5rem;
+            height: 2.5rem;
+            align-items: center;
+            justify-content: center;
+            list-style: none;
+            cursor: pointer;
+            border: 1px solid var(--line);
+            border-radius: 50%;
+            background: rgba(5,6,10,0.6);
+          }
+          .mobile-menu summary::-webkit-details-marker { display: none; }
+          .hamburger, .hamburger::before, .hamburger::after {
+            display: block;
+            width: 1rem;
+            height: 1px;
+            background: var(--bone);
+          }
+          .hamburger { position: relative; }
+          .hamburger::before, .hamburger::after { content: ''; position: absolute; left: 0; }
+          .hamburger::before { top: -5px; }
+          .hamburger::after { top: 5px; }
+          .mobile-menu ul {
+            position: absolute;
+            top: calc(100% + 0.5rem);
             right: 0;
-            left: auto;
-            width: 68%;
-            height: 52%;
+            z-index: 10;
+            display: grid;
+            gap: 0;
+            min-width: 9rem;
+            padding: 0.4rem;
+            border: 1px solid var(--line);
+            border-radius: 0.8rem;
+            background: rgba(5,6,10,0.96);
+            list-style: none;
+          }
+          .mobile-menu a {
+            display: block;
+            padding: 0.65rem 0.75rem;
+            color: var(--bone);
+            text-decoration: none;
+            font-size: 1.152rem;
+          }
+          .logo img { width: 4.5rem; }
+          .hero__image {
+            grid-row: 3;
+            position: relative;
+            inset: auto;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4 / 3;
+            margin-top: 0.35rem;
           }
           .hero__image img {
-            object-fit: contain;
-            object-position: right center;
+            object-fit: cover;
+            object-position: center 42%;
           }
-          .shade {
-            background: linear-gradient(90deg, var(--ink) 0%, rgba(5,6,10,0.75) 38%, rgba(5,6,10,0.08) 100%),
-                        linear-gradient(180deg, transparent 0%, rgba(5,6,10,0.18) 42%, var(--ink) 78%);
-          }
+          .shade, .haze, .grain { display: none; }
           .content {
-            min-height: calc(100svh - 6.5rem);
-            max-width: 74%;
-            justify-content: center;
-            padding: 1rem 0 5.5rem 1.5rem;
+            display: contents;
           }
-          .title { font-size: clamp(2.55rem, 10vw, 3.4rem); }
-          .lede { max-width: 19rem; font-size: 0.95rem; }
-          .actions { gap: 0.7rem; margin-top: 1.5rem; }
-          .btn { padding: 0.8rem 1rem; font-size: 0.82rem; }
-          .track { bottom: 1.4rem; font-size: 0.75rem; }
+          .title, .lede { position: relative; z-index: 5; }
+          .title {
+            grid-row: 2;
+            top: 0;
+            max-width: 100%;
+            padding: 0.9rem 1rem 0.55rem;
+            font-size: clamp(1.25rem, 7.2vw, 1.95rem);
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            white-space: nowrap;
+          }
+          .title span { display: inline; }
+          .title span::after { content: none; }
+          .lede {
+            grid-row: 4;
+            max-width: 28rem;
+            margin: 0.9rem 1.25rem 0;
+            font-size: 0.88rem;
+            line-height: 1.5;
+          }
         }
 
         @media (prefers-reduced-motion: reduce) {
-          .haze span, .eq i, .title, .lede, .actions, .track { animation: none !important; }
+          .haze span, .title, .lede { animation: none !important; }
         }
       `}</style>
 
@@ -348,40 +350,36 @@ export default function Hero() {
 
       {/* Nav */}
       <nav className="nav">
-        <a href="#" className="logo">Hifalita</a>
+        <a href="/" className="logo" aria-label="Hifalita home">
+          <Image src="/assets/whiteautog.png" alt="Hifalita" width={120} height={87} priority />
+        </a>
         <ul>
           <li><a className="link" href="#music">Music</a></li>
           <li><a className="link" href="#live">Live</a></li>
           <li><a className="link" href="#journal">Journal</a></li>
           <li><a className="link" href="#contact">Contact</a></li>
         </ul>
+        <details className="mobile-menu">
+          <summary aria-label="Open navigation menu"><span className="hamburger" /></summary>
+          <ul>
+            <li><a href="#music">Music</a></li>
+            <li><a href="#live">Live</a></li>
+            <li><a href="#journal">Journal</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </details>
       </nav>
 
       {/* Copy */}
       <section className="content">
         <h1 className="title">
-          Slow songs for <em>the hours after midnight.</em>
+          <span>Vocals that</span>{' '}<span>ring through</span>{' '}<span>time</span>
         </h1>
         <p className="lede">
           Downtempo beats, deep bass and a voice that sits close to the mic.
           Live sessions, new releases and late-night sets, all in one place.
         </p>
-        <div className="actions">
-          <a href="#music" className="btn btn-solid btn--solid">
-            <span className="play" aria-hidden="true" />
-            Play latest single
-          </a>
-          <a href="#live" className="btn btn--ghost">See live dates</a>
-        </div>
       </section>
-
-      {/* Now playing */}
-      <div className="track" aria-label="Now playing">
-        <div className="eq" aria-hidden="true">
-          <i /><i /><i /><i />
-        </div>
-        <span>Now playing <b>Glasshouse (Live Session)</b></span>
-      </div>
     </main>
   );
 }
