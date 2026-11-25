@@ -65,12 +65,8 @@ export default function Interact() {
               And what I assume you shall assume,<br />
               For every atom belonging to me as good belongs to you.
             </p>
+            
             <p>
-              I loafe and invite my soul,<br />
-              I lean and loafe at my ease observing a spear of summer grass.
-            </p>
-            <p>
-              My tongue, every atom of my blood, form’d from this soil, this air,<br />
               Born here of parents born here from parents the same, and their music the same.
             </p>
           </div>
@@ -97,7 +93,6 @@ export default function Interact() {
           padding: clamp(2.1rem, 4.6vw, 4.25rem) clamp(1.25rem, 5vw, 4.5rem);
           color: var(--cream);
           background: var(--ink);
-          font-family: Helvetica, Arial, sans-serif;
         }
         .interact__social-heading { max-width: 22rem; }
         .interact__social-heading h2 {
@@ -260,12 +255,11 @@ export default function Interact() {
         }
         .interact__poem-copy {
           width: min(100%, 86rem);
-          font-family: Montserrat, Helvetica, Arial, sans-serif;
-          font-size: clamp(1.65rem, 3.8vw, 4.5rem);
-          font-weight: 700;
+          font-family: Prata, Georgia, serif;
+          font-size: clamp(1.32rem, 3.04vw, 3.6rem);
+          font-weight: 400;
           line-height: 1.38;
           letter-spacing: -0.025em;
-          text-transform: uppercase;
         }
         .interact__poem-copy p { margin: 0; }
         .interact__poem-copy p + p { margin-top: clamp(0.85rem, 2vw, 1.5rem); }
@@ -297,7 +291,7 @@ export default function Interact() {
           .social-row__note { grid-column: 1; grid-row: 2; text-align: left; font-size: 0.8rem; }
           .social-row__go { grid-column: 2; grid-row: 1 / span 2; width: 2.1rem; height: 2.1rem; }
           .interact__poem { gap: 2.5rem; padding: 0.35rem 0.7rem 1rem; }
-          .interact__poem-copy { font-size: clamp(0.9rem, 4vw, 1.1rem); line-height: 1.28; letter-spacing: -0.035em; }
+          .interact__poem-copy { font-size: clamp(0.72rem, 3.2vw, 0.88rem); line-height: 1.28; letter-spacing: -0.035em; }
           .interact__poem-copy p + p { margin-top: 0.4rem; }
           .interact__collage--color {
             -webkit-mask-image: radial-gradient(circle 118.75px at var(--pointer-x) var(--pointer-y), #000 0, transparent 100%);
@@ -313,3 +307,11 @@ export default function Interact() {
     </main>
   );
 }
+
+
+
+
+
+
+
+
