@@ -182,30 +182,13 @@ export default function Hero() {
         .nav a.link {
           position: relative;
           display: inline-block;
-          font-family: 'Playfair Display', Georgia, serif;
+          font-family: Helvetica, Arial, sans-serif;
           font-size: 1.3rem;
           letter-spacing: -0.01em;
           color: var(--bone);
           text-decoration: none;
           transition: opacity 320ms ease;
         }
-        /* a small lit dot marks the link in focus */
-        .nav a.link::before {
-          content: "";
-          position: absolute;
-          left: -0.95rem;
-          top: 50%;
-          width: 5px;
-          height: 5px;
-          margin-top: -2.5px;
-          border-radius: 50%;
-          background: var(--teal);
-          box-shadow: 0 0 10px var(--teal);
-          transform: scale(0);
-          transition: transform 360ms cubic-bezier(0.2, 0.7, 0.2, 1);
-        }
-        .nav a.link:hover::before,
-        .nav a.link:focus-visible::before { transform: scale(1); }
         @media (hover: hover) {
           .nav__links:hover a.link:not(:hover) { opacity: 0.4; }
         }
@@ -386,7 +369,7 @@ export default function Hero() {
           .menu li a {
             display: block;
             padding: 1rem 0;
-            font-family: 'Playfair Display', Georgia, serif;
+            font-family: Helvetica, Arial, sans-serif;
             font-size: clamp(2.1rem, 9vw, 3rem);
             letter-spacing: -0.02em;
             color: var(--bone);
@@ -492,8 +475,8 @@ export default function Hero() {
           <span>Vocals that</span>{' '}<span>ring through</span>{' '}<span>time</span>
         </h1>
         <p className="lede">
-          Downtempo beats, deep bass and a voice that sits close to the mic.
-          Live sessions, new releases and late-night sets, all in one place.
+         Unfiltered vocals. Electric stage energy.
+From high-octane Bollywood and Western pop sets to intimate acoustic sessions and original music.
         </p>
       </section>
     </main>
