@@ -70,6 +70,12 @@ export default function Hero() {
           width: 78%;
           z-index: 0;
         }
+        .hero__image picture {
+          position: relative;
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
         .hero__image img {
           width: 100%;
           height: 100%;
