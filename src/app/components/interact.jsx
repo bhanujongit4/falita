@@ -281,6 +281,15 @@ export default function Interact() {
           .interact__social-heading { max-width: none; }
           .interact__social-heading h2 br { display: none; }
         }
+        @media (max-width: 700px) {
+          .interact__canvas { aspect-ratio: auto; }
+          .interact__poem {
+            position: relative;
+            inset: auto;
+            transform: none;
+            min-height: 150vw;
+          }
+        }
         @media (max-width: 600px) {
           .interact__social { gap: 0.8rem; padding: 1.35rem 1rem 1.5rem; }
           .interact__social-heading span { margin-top: 0.55rem; }

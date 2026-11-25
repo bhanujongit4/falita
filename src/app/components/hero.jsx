@@ -313,7 +313,7 @@ export default function Hero() {
           }
           .nav::after, .nav__links, .nav__cta { display: none; }
           .logo { position: relative; z-index: 2; }
-          .logo img { display: block; width: 4.6rem; height: auto; }
+          .logo img { display: block; width: 4.6rem; height: 3.335rem; }
 
           .menu-btn {
             position: relative;
