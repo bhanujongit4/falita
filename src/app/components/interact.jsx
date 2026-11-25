@@ -57,9 +57,45 @@ export default function Interact() {
         </div>
         <div className="interact__shade" aria-hidden="true" />
         <div className="interact__top" aria-hidden="true" />
+        <article className="interact__poem" id="story">
+          <div className="interact__poem-copy">
+            <p>
+              I celebrate myself, and sing myself,<br />
+              And what I assume you shall assume,<br />
+              For every atom belonging to me as good belongs to you.
+            </p>
+            <p>
+              I loafe and invite my soul,<br />
+              I lean and loafe at my ease observing a spear of summer grass.
+            </p>
+            <p>
+              My tongue, every atom of my blood, form’d from this soil, this air,<br />
+              Born here of parents born here from parents the same, and their music the same.
+            </p>
+          </div>
+          <nav className="interact__story-links" aria-label="Explore Falita">
+            <a href="#story">
+              <span className="interact__story-number">01</span>
+              <span className="interact__story-label">Read the story</span>
+              <span className="interact__story-arrow" aria-hidden="true">↗</span>
+            </a>
+            <a href="https://www.youtube.com/channel/UCIxtpNCsWzQydg7UKcB2IJg" target="_blank" rel="noreferrer">
+              <span className="interact__story-number">02</span>
+              <span className="interact__story-label">Past performances</span>
+              <span className="interact__story-arrow" aria-hidden="true">↗</span>
+            </a>
+            <a href="https://in.bookmyshow.com/person/falita-chowdhary/2059259" target="_blank" rel="noreferrer">
+              <span className="interact__story-number">03</span>
+              <span className="interact__story-label">Upcoming shows</span>
+              <span className="interact__story-arrow" aria-hidden="true">↗</span>
+            </a>
+          </nav>
+        </article>
       </div>
 
       <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap');
+
         .interact {
           --ink: #05060a;
           --cream: #f1ede6;
@@ -208,7 +244,7 @@ export default function Interact() {
         }
         .interact__collage { position: absolute; inset: 0; z-index: -1; }
         .interact__collage img { object-fit: contain; }
-        .interact__collage--mono img { filter: grayscale(1) brightness(0.62); }
+        .interact__collage--mono img { filter: grayscale(1) brightness(0.42); }
         .interact__collage--color {
           -webkit-mask-image: radial-gradient(circle 168.75px at var(--pointer-x) var(--pointer-y), #000 0, transparent 100%);
           mask-image: radial-gradient(circle 168.75px at var(--pointer-x) var(--pointer-y), #000 0, transparent 100%);
@@ -221,6 +257,61 @@ export default function Interact() {
           background: rgba(0, 0, 0, 0.12);
           pointer-events: none;
         }
+        .interact__poem {
+          position: absolute;
+          z-index: 2;
+          inset: 0;
+          display: flex;
+          flex-direction: column;
+          transform: translateY(10%);
+          align-items: center;
+          justify-content: flex-start;
+          gap: clamp(2rem, 5vw, 4.5rem);
+          padding: clamp(1.25rem, 4vh, 3.5rem) clamp(1.5rem, 6vw, 6rem) 4rem;
+          color: var(--cream);
+          text-align: center;
+          text-shadow: 0 2px 18px rgba(0,0,0,0.8);
+          pointer-events: none;
+        }
+        .interact__poem-copy {
+          width: min(100%, 86rem);
+          font-family: Montserrat, Helvetica, Arial, sans-serif;
+          font-size: clamp(1.65rem, 3.8vw, 4.5rem);
+          font-weight: 700;
+          line-height: 1.38;
+          letter-spacing: -0.025em;
+          text-transform: uppercase;
+        }
+        .interact__poem-copy p { margin: 0; }
+        .interact__poem-copy p + p { margin-top: clamp(0.85rem, 2vw, 1.5rem); }
+        .interact__story-links {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          width: min(100%, 86rem);
+          gap: 0.9rem;
+          pointer-events: auto;
+        }
+        .interact__story-links a {
+          display: grid;
+          grid-template-columns: auto 1fr auto;
+          align-items: center;
+          gap: 0.8rem;
+          min-height: 4.6rem;
+          padding: 1.1rem 1.2rem;
+          border: 1px solid rgba(255,255,255,0.9);
+          border-radius: 999px;
+          background: #fff;
+          color: #05060a;
+          font-family: Helvetica, Arial, sans-serif;
+          text-decoration: none;
+          text-shadow: none;
+          transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+        }
+        .interact__story-links a:hover,
+        .interact__story-links a:focus-visible { background: #f8f5ee; border-color: #e6c889; transform: translateY(-2px); outline: none; }
+        .interact__story-number { color: #8a6b2b; font-size: 0.85rem; letter-spacing: 0.1em; }
+        .interact__story-label { font-size: clamp(1rem, 1.3vw, 1.2rem); font-weight: 600; }
+        .interact__story-arrow { justify-self: end; font-size: 1.2rem; }
 
         /* ---------- Responsive ---------- */
         @media (max-width: 800px) {
@@ -239,6 +330,13 @@ export default function Interact() {
           .social-row { grid-template-columns: 1fr 2.1rem; gap: 0.2rem 1rem; }
           .social-row__note { grid-column: 1; grid-row: 2; text-align: left; font-size: 0.8rem; }
           .social-row__go { grid-column: 2; grid-row: 1 / span 2; width: 2.1rem; height: 2.1rem; }
+          .interact__poem { gap: 1rem; padding: 1rem 0.9rem 2rem; }
+          .interact__poem-copy { font-size: clamp(1rem, 4.5vw, 1.3rem); line-height: 1.36; letter-spacing: -0.035em; }
+          .interact__poem-copy p + p { margin-top: 0.6rem; }
+          .interact__story-links { grid-template-columns: 1fr; }
+          .interact__story-links { gap: 0.55rem; }
+          .interact__story-links a { min-height: 3.5rem; padding: 0.8rem 1rem; gap: 0.7rem; }
+          .interact__story-label { font-size: 0.98rem; }
           .interact__collage--color {
             -webkit-mask-image: radial-gradient(circle 118.75px at var(--pointer-x) var(--pointer-y), #000 0, transparent 100%);
             mask-image: radial-gradient(circle 118.75px at var(--pointer-x) var(--pointer-y), #000 0, transparent 100%);
