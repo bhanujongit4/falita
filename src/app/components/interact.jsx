@@ -255,9 +255,10 @@ export default function Interact() {
         }
         .interact__poem-copy {
           width: min(100%, 86rem);
-          font-family: Prata, Georgia, serif;
+          font-family: var(--font-libre-caslon-italic), Georgia, serif;
           font-size: clamp(1.32rem, 3.04vw, 3.6rem);
           font-weight: 400;
+          font-style: italic;
           line-height: 1.38;
           letter-spacing: -0.025em;
         }
@@ -290,7 +291,7 @@ export default function Interact() {
           .social-row { grid-template-columns: 1fr 2.1rem; gap: 0.2rem 1rem; }
           .social-row__note { grid-column: 1; grid-row: 2; text-align: left; font-size: 0.8rem; }
           .social-row__go { grid-column: 2; grid-row: 1 / span 2; width: 2.1rem; height: 2.1rem; }
-          .interact__poem { gap: 2.5rem; padding: 0.35rem 0.7rem 1rem; }
+          .interact__poem { gap: 2.5rem; padding: 3rem 0.7rem 1rem; }
           .interact__poem-copy { font-size: clamp(0.72rem, 3.2vw, 0.88rem); line-height: 1.28; letter-spacing: -0.035em; }
           .interact__poem-copy p + p { margin-top: 0.4rem; }
           .interact__collage--color {
@@ -307,6 +308,10 @@ export default function Interact() {
     </main>
   );
 }
+
+
+
+
 
 
 

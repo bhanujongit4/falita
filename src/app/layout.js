@@ -1,7 +1,7 @@
-import { Prata } from "next/font/google";
+import { Libre_Caslon_Text } from "next/font/google";
 import "./globals.css";
 
-const prata = Prata({ weight: "400", subsets: ["latin"] });
+const libreCaslonItalic = Libre_Caslon_Text({ weight: "400", style: "italic", subsets: ["latin"], variable: "--font-libre-caslon-italic" });
 
 const configuredSiteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
@@ -75,8 +75,9 @@ export const viewport = {
 };
 
 export default function RootLayout({ children }) {
-  return <html lang="en" className={`${prata.className} h-full antialiased`}><body className="min-h-full flex flex-col">{children}</body></html>;
+  return <html lang="en" className={`${libreCaslonItalic.variable} h-full antialiased`}><body className="min-h-full flex flex-col">{children}</body></html>;
 }
+
 
 
 
